@@ -19,12 +19,6 @@ if (!empty($name) && !empty($food_awnser) && !empty($hobby_awnser)) {
         $dbPassword
     );
 
-    $pdo = new PDO(
-        'mysql:host=mysql; dbname=questionnaireform; charset=utf8',
-        $dbUserName,
-        $dbPassword
-    );
-
     $sql =
         'INSERT INTO `bookings` (`name`, `food_awnser`, `hobby_awnser`) VALUES (:name, :food_awnser, :hobby_awnser)';
     $statement = $pdo->prepare($sql);
@@ -32,12 +26,6 @@ if (!empty($name) && !empty($food_awnser) && !empty($hobby_awnser)) {
     $statement->bindValue(':food_awnser', $food_awnser, PDO::PARAM_STR);
     $statement->bindValue(':hobby_awnser', $hobby_awnser, PDO::PARAM_STR);
     $statement->execute();
-
-    $pdo = new PDO(
-        'mysql:host=mysql; dbname=questionnaireform; charset=utf8',
-        $dbUserName,
-        $dbPassword
-    );
 }
 ?>
 
